@@ -12,6 +12,7 @@ namespace SalesWebMVC.Controllers
 {
     public class DepartmentsController : Controller
     {
+        //Já implementa o Repositories (acesso a dados)
         private readonly SalesWebMVCContext _context;
 
         public DepartmentsController(SalesWebMVCContext context)

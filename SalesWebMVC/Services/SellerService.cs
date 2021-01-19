@@ -7,23 +7,22 @@ using SalesWebMVC.Models;
 
 namespace SalesWebMVC.Services
 {
-    public class SellerService
+    public class SellerService //Classe relacionada a entidade Seller. Responsavel por realizar operações relacionadas ao Seller, implementar as regras de negocio(salvar, atualizar)
     {
-        private readonly SalesWebMVCContext _context;
+        private readonly SalesWebMVCContext _context; //Dependencia para o dbcontext
 
-        public SellerService(SalesWebMVCContext context)
+        public SellerService(SalesWebMVCContext context) //Injeção possa ocorrer
         {
             _context = context;
         }
 
-        public List<Seller> FindAll()
+        public List<Seller> FindAll() //Retorna uma lista com todos os vendedores do banco de dados
         {
             return _context.Seller.ToList();
         }
 
         public void Insert(Seller obj)
         {
-            obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
